@@ -13,20 +13,56 @@
 </head>
 
 <body class="text-slate-100">
+  <!-- Inline SVG Icon (reusable) -->
+  <svg style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false">
+    <symbol id="askdesk-icon" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="18" fill="#6366F1"/>
+      <circle cx="32" cy="32" r="20" fill="white" fill-opacity="0.1"/>
+      <circle cx="32" cy="32" r="12" stroke="white" stroke-width="4" fill="none"/>
+      <path d="M32 8V16" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M32 48V56" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M8 32H16" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M48 32H56" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="32" cy="32" r="5" fill="#F43F5E"/>
+    </symbol>
+  </svg>
+
   <!-- Top Bar -->
   <header class="sticky top-0 z-50 backdrop-blur bg-slate-900/60 border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 grid place-items-center font-black">A</div>
+        <!-- Icon -->
+        <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm">
+          <svg class="w-full h-full" viewBox="0 0 64 64">
+            <use href="#askdesk-icon"></use>
+          </svg>
+        </div>
+
         <div class="leading-tight">
           <div class="font-bold tracking-wide">AskDesk</div>
           <div class="text-[11px] text-slate-400">Grounded Q&A for serious work</div>
         </div>
       </div>
+
       <div class="flex items-center gap-2">
         <a href="#pricing" class="hidden sm:inline-flex px-3 py-2 text-sm rounded-lg border border-slate-700 hover:border-slate-500">Pricing</a>
         <a href="https://app.askdesk.app" class="px-3 py-2 text-sm rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700">Open App</a>
-        <a href="https://api.askdesk.app/billing/upgrade?plan" class="px-3 py-2 text-sm rounded-lg bg-indigo-500 hover:bg-indigo-400 font-semibold">Upgrade</a>
+
+        <!-- Split upgrade buttons -->
+        <a href="https://api.askdesk.app/billing/upgrade?plan=pro"
+           class="hidden md:inline-flex px-3 py-2 text-sm rounded-lg bg-indigo-500 hover:bg-indigo-400 font-semibold">
+          Upgrade to Pro
+        </a>
+        <a href="https://api.askdesk.app/billing/upgrade?plan=enterprise"
+           class="hidden md:inline-flex px-3 py-2 text-sm rounded-lg bg-violet-600 hover:bg-violet-500 font-semibold">
+          Upgrade to Enterprise
+        </a>
+
+        <!-- Mobile single button (optional) -->
+        <a href="#pricing"
+           class="md:hidden px-3 py-2 text-sm rounded-lg bg-indigo-500 hover:bg-indigo-400 font-semibold">
+          Upgrade
+        </a>
       </div>
     </div>
   </header>
@@ -50,12 +86,24 @@
         </p>
 
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <a href="/app" class="px-5 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 font-semibold text-center">
+          <a href="https://app.askdesk.app" class="px-5 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 font-semibold text-center">
             Try Starter (Free)
           </a>
           <a href="#how" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-semibold text-center">
             See how it works
           </a>
+        </div>
+
+        <!-- Extra icon in "empty" spot -->
+        <div class="mt-8 flex items-center gap-3 text-slate-400">
+          <div class="w-10 h-10 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/40">
+            <svg class="w-full h-full" viewBox="0 0 64 64">
+              <use href="#askdesk-icon"></use>
+            </svg>
+          </div>
+          <div class="text-xs">
+            Source-grounded output • Reviewable • Exportable (plan-based)
+          </div>
         </div>
 
         <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm text-slate-300">
@@ -79,6 +127,14 @@
       <!-- Mock -->
       <div class="relative">
         <div class="absolute -inset-6 blur-3xl bg-gradient-to-br from-indigo-500/20 to-violet-600/20"></div>
+
+        <!-- Icon floating badge -->
+        <div class="absolute -top-4 -right-4 w-12 h-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 shadow-xl">
+          <svg class="w-full h-full" viewBox="0 0 64 64">
+            <use href="#askdesk-icon"></use>
+          </svg>
+        </div>
+
         <div class="relative rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden shadow-2xl">
           <div class="p-4 border-b border-slate-800 flex items-center justify-between">
             <div class="text-xs text-slate-400">AskDesk Preview</div>
@@ -140,7 +196,7 @@
   <section id="how" class="max-w-6xl mx-auto px-4 py-12">
     <div class="flex items-end justify-between gap-4">
       <h2 class="text-2xl font-black">How it works</h2>
-      <a href="/app" class="text-sm text-indigo-300 hover:text-indigo-200">Open the app →</a>
+      <a href="https://app.askdesk.app" class="text-sm text-indigo-300 hover:text-indigo-200">Open the app →</a>
     </div>
     <div class="mt-6 grid lg:grid-cols-3 gap-4">
       <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
@@ -163,8 +219,19 @@
 
   <!-- Pricing -->
   <section id="pricing" class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-black">Pricing</h2>
-    <p class="mt-2 text-slate-400 text-sm">Cancel anytime. Payments handled via LemonSqueezy checkout.</p>
+    <div class="flex items-start justify-between gap-4 flex-col sm:flex-row">
+      <div>
+        <h2 class="text-2xl font-black">Pricing</h2>
+        <p class="mt-2 text-slate-400 text-sm">Cancel anytime. Payments handled via LemonSqueezy checkout.</p>
+      </div>
+
+      <!-- Icon in header-right -->
+      <div class="hidden sm:block w-11 h-11 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/40">
+        <svg class="w-full h-full" viewBox="0 0 64 64">
+          <use href="#askdesk-icon"></use>
+        </svg>
+      </div>
+    </div>
 
     <div class="mt-6 grid lg:grid-cols-3 gap-4">
       <!-- Starter -->
@@ -183,7 +250,7 @@
           <li>• No export, restricted copy</li>
         </ul>
 
-        <a href="/app" class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-semibold">
+        <a href="https://app.askdesk.app" class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-semibold">
           Start Free
         </a>
       </div>
@@ -204,7 +271,9 @@
           <li>• Higher daily capacity for production use</li>
         </ul>
 
-        <a href="https://api.askdesk.app/billing/upgrade?plan=pro" class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 font-semibold">
+        <!-- TODO: replace href with your LemonSqueezy Pro checkout URL -->
+        <a href="https://api.askdesk.app/billing/upgrade?plan=pro"
+           class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 font-semibold">
           Upgrade to Pro
         </a>
       </div>
@@ -225,7 +294,9 @@
           <li>• Copy enabled + highest capacity</li>
         </ul>
 
-        <a href="https://api.askdesk.app/billing/upgrade?plan=enterprise" class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-semibold">
+        <!-- TODO: replace href with your LemonSqueezy Enterprise checkout URL -->
+        <a href="https://api.askdesk.app/billing/upgrade?plan=enterprise"
+           class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 font-semibold">
           Upgrade to Enterprise
         </a>
       </div>
@@ -239,11 +310,23 @@
   <!-- Trust -->
   <section class="max-w-6xl mx-auto px-4 py-12">
     <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/40">
-      <h3 class="text-xl font-black">Built for responsibility</h3>
-      <p class="mt-2 text-slate-400 text-sm leading-relaxed">
-        AskDesk is designed for regulated and high-stakes workflows where accuracy, traceability, and reviewability matter.
-        Output includes verbatim extracts to support auditability and review.
-      </p>
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-xl font-black">Built for responsibility</h3>
+          <p class="mt-2 text-slate-400 text-sm leading-relaxed">
+            AskDesk is designed for regulated and high-stakes workflows where accuracy, traceability, and reviewability matter.
+            Output includes verbatim extracts to support auditability and review.
+          </p>
+        </div>
+
+        <!-- Icon -->
+        <div class="hidden sm:block w-12 h-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/40">
+          <svg class="w-full h-full" viewBox="0 0 64 64">
+            <use href="#askdesk-icon"></use>
+          </svg>
+        </div>
+      </div>
+
       <div class="mt-6 grid sm:grid-cols-3 gap-3 text-sm text-slate-300">
         <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">• Source-grounded extraction</div>
         <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">• Review notes + status workflow</div>
@@ -255,11 +338,19 @@
   <!-- Footer -->
   <footer class="border-t border-slate-800 bg-slate-950/30">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-400 flex flex-col md:flex-row gap-3 items-start md:items-center justify-between">
-      <div>© <span id="y"></span> AskDesk • Built by ATAOL AI Techs</div>
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-lg overflow-hidden border border-slate-800 bg-slate-900/40">
+          <svg class="w-full h-full" viewBox="0 0 64 64">
+            <use href="#askdesk-icon"></use>
+          </svg>
+        </div>
+        <div>©️ <span id="y"></span> AskDesk • Built by ATAOL AI Techs</div>
+      </div>
+
       <div class="flex gap-4">
         <a class="hover:text-slate-200" href="/terms.html">Terms of Use</a>
         <a class="hover:text-slate-200" href="/privacy.html">Privacy Policy</a>
-        <a class="hover:text-slate-200" href="/app">Open App</a>
+        <a class="hover:text-slate-200" href="https://app.askdesk.app">Open App</a>
       </div>
     </div>
   </footer>
@@ -269,5 +360,3 @@
   </script>
 </body>
 </html>
-
-
