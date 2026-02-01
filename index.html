@@ -1,68 +1,271 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AskDesk – AI-powered Q&A</title>
-<style>
-
-    body {
-
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
-
-      margin: 0;
-
-      padding: 0;
-
-      background: #0f172a;
-
-      color: #e5e7eb;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      height: 100vh;
-
-    }
-
-    .box {
-
-      text-align: center;
-
-      max-width: 600px;
-
-    }
-
-    a {
-
-      display: inline-block;
-
-      margin-top: 24px;
-
-      padding: 12px 20px;
-
-      background: #22c55e;
-
-      color: #022c22;
-
-      text-decoration: none;
-
-      border-radius: 8px;
-
-      font-weight: 600;
-
-    }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AskDesk — Grounded Q&A from your documents</title>
+  <meta name="description" content="AskDesk turns complex documents into precise, source-grounded Q&A. Built for professional and regulated workflows." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background:#0b1220; }
+  </style>
 </head>
-<body>
-<div class="box">
-<h1>AskDesk</h1>
-<p>AI-powered question answering for documents and knowledge bases.</p>
-<a href="https://app.askdesk.app">Go to App</a>
-</div>
+
+<body class="text-slate-100">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-slate-900/60 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 grid place-items-center font-black">A</div>
+        <div class="leading-tight">
+          <div class="font-bold tracking-wide">AskDesk</div>
+          <div class="text-[11px] text-slate-400">Grounded Q&A for serious work</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#pricing" class="hidden sm:inline-flex px-3 py-2 text-sm rounded-lg border border-slate-700 hover:border-slate-500">Pricing</a>
+        <a href="/app" class="px-3 py-2 text-sm rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700">Open App</a>
+        <a href="https://api.askdesk.app/billing/upgrade?plan=pro" class="px-3 py-2 text-sm rounded-lg bg-indigo-500 hover:bg-indigo-400 font-semibold">Upgrade</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-14 pb-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full border border-slate-700 bg-slate-900/50 text-slate-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          Built for professional workflows • Source-grounded output
+        </div>
+
+        <h1 class="mt-5 text-4xl sm:text-5xl font-black leading-tight">
+          Turn complex documents into <span class="text-indigo-400">precise Q&A</span> — instantly.
+        </h1>
+
+        <p class="mt-4 text-slate-300 text-lg leading-relaxed">
+          AskDesk generates questions, answers, and verbatim source extracts so you can train, review,
+          and document knowledge without hallucinations taking the wheel.
+        </p>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href="/app" class="px-5 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 font-semibold text-center">
+            Try Starter (Free)
+          </a>
+          <a href="#how" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-semibold text-center">
+            See how it works
+          </a>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm text-slate-300">
+          <div class="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
+            <div class="font-bold text-white">Grounded</div>
+            <div class="text-slate-400 text-xs">Extract + citations</div>
+          </div>
+          <div class="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
+            <div class="font-bold text-white">Multi-lingual</div>
+            <div class="text-slate-400 text-xs">Q & A languages</div>
+          </div>
+          <div class="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
+            <div class="font-bold text-white">Exports</div>
+            <div class="text-slate-400 text-xs">CSV/XLSX/JSON*</div>
+          </div>
+        </div>
+
+        <p class="mt-3 text-xs text-slate-500">*Export features depend on your plan.</p>
+      </div>
+
+      <!-- Mock -->
+      <div class="relative">
+        <div class="absolute -inset-6 blur-3xl bg-gradient-to-br from-indigo-500/20 to-violet-600/20"></div>
+        <div class="relative rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden shadow-2xl">
+          <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+            <div class="text-xs text-slate-400">AskDesk Preview</div>
+            <div class="text-xs px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300">Ready</div>
+          </div>
+          <div class="p-5 space-y-4">
+            <div class="p-4 rounded-xl bg-slate-950/50 border border-slate-800">
+              <div class="text-[11px] text-slate-400 uppercase font-bold">Question</div>
+              <div class="mt-1 text-white font-semibold">
+                What is the required action when the procedure indicates an inhibit condition?
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950/50 border border-slate-800">
+              <div class="text-[11px] text-slate-400 uppercase font-bold">Answer</div>
+              <div class="mt-1 text-slate-200 text-sm leading-relaxed">
+                The procedure must be followed exactly as stated; if the inhibit condition applies, related messages are suppressed until the inhibit phase ends.
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950/50 border border-slate-800">
+              <div class="text-[11px] text-slate-400 uppercase font-bold">Source Extract</div>
+              <div class="mt-1 text-slate-300 text-sm font-mono">
+                “...messages are inhibited during the specified phase and reappear when the phase ends...”
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <div class="flex-1 p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-xs text-slate-300">
+                Bulk mode • review log • status tracking
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300">
+                Grounding: PASS
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Logos / Use-cases -->
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="p-5 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="font-bold text-white">Aviation</div>
+        <div class="text-slate-400 text-sm mt-1">FCOM/FCTM, SOPs, briefs, training extracts.</div>
+      </div>
+      <div class="p-5 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="font-bold text-white">Compliance / ISO</div>
+        <div class="text-slate-400 text-sm mt-1">Audits, procedures, policies, evidence-backed Q&A.</div>
+      </div>
+      <div class="p-5 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="font-bold text-white">Legal / Medical</div>
+        <div class="text-slate-400 text-sm mt-1">Structured extraction & review workflows.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-end justify-between gap-4">
+      <h2 class="text-2xl font-black">How it works</h2>
+      <a href="/app" class="text-sm text-indigo-300 hover:text-indigo-200">Open the app →</a>
+    </div>
+    <div class="mt-6 grid lg:grid-cols-3 gap-4">
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="text-indigo-300 font-black text-xl">1</div>
+        <div class="mt-2 font-bold">Upload</div>
+        <div class="text-slate-400 text-sm mt-1">Paste text or upload PDF/DOCX/XLSX/images.</div>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="text-indigo-300 font-black text-xl">2</div>
+        <div class="mt-2 font-bold">Generate</div>
+        <div class="text-slate-400 text-sm mt-1">AskDesk creates Q&A plus source extract + citations.</div>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="text-indigo-300 font-black text-xl">3</div>
+        <div class="mt-2 font-bold">Review & export</div>
+        <div class="text-slate-400 text-sm mt-1">Log, status, notes, and export based on plan.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-2xl font-black">Pricing</h2>
+    <p class="mt-2 text-slate-400 text-sm">Cancel anytime. Payments handled via LemonSqueezy checkout.</p>
+
+    <div class="mt-6 grid lg:grid-cols-3 gap-4">
+      <!-- Starter -->
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="flex items-center justify-between">
+          <div class="font-bold text-white text-lg">Starter</div>
+          <div class="text-xs px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300">Free</div>
+        </div>
+        <div class="mt-3 text-3xl font-black">$0</div>
+        <div class="text-slate-400 text-sm">5 generations / day</div>
+
+        <ul class="mt-5 space-y-2 text-sm text-slate-300">
+          <li>• Q&A + extract + grounding check</li>
+          <li>• Single generate + bulk up to 5</li>
+          <li>• Session log + status tracking</li>
+          <li>• No export, restricted copy</li>
+        </ul>
+
+        <a href="/app" class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-semibold">
+          Start Free
+        </a>
+      </div>
+
+      <!-- Pro -->
+      <div class="p-6 rounded-2xl border border-indigo-500/40 bg-indigo-500/10 ring-1 ring-indigo-500/20">
+        <div class="flex items-center justify-between">
+          <div class="font-bold text-white text-lg">Pro</div>
+          <div class="text-xs px-2 py-1 rounded bg-indigo-500 text-white font-semibold">Most Popular</div>
+        </div>
+        <div class="mt-3 text-3xl font-black">$9.99<span class="text-sm font-semibold text-slate-200">/month</span></div>
+        <div class="text-slate-300 text-sm">100 generations / day</div>
+
+        <ul class="mt-5 space-y-2 text-sm text-slate-100">
+          <li>• Everything in Starter</li>
+          <li>• Bulk up to 20</li>
+          <li>• Export: CSV + XLSX</li>
+          <li>• Higher daily capacity for production use</li>
+        </ul>
+
+        <a href="https://api.askdesk.app/billing/upgrade?plan=pro" class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 font-semibold">
+          Upgrade to Pro
+        </a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="flex items-center justify-between">
+          <div class="font-bold text-white text-lg">Enterprise</div>
+          <div class="text-xs px-2 py-1 rounded bg-violet-600/20 border border-violet-600/40 text-violet-200">Teams</div>
+        </div>
+        <div class="mt-3 text-3xl font-black">$99.99<span class="text-sm font-semibold text-slate-200">/month</span></div>
+        <div class="text-slate-400 text-sm">1000 generations / day</div>
+
+        <ul class="mt-5 space-y-2 text-sm text-slate-300">
+          <li>• Everything in Pro</li>
+          <li>• Bulk up to 100</li>
+          <li>• Export: CSV + XLSX + JSON</li>
+          <li>• Copy enabled + highest capacity</li>
+        </ul>
+
+        <a href="https://api.askdesk.app/billing/upgrade?plan=enterprise" class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-semibold">
+          Upgrade to Enterprise
+        </a>
+      </div>
+    </div>
+
+    <p class="mt-4 text-xs text-slate-500">
+      Note: plan enforcement is server-side (subscription status + limits).
+    </p>
+  </section>
+
+  <!-- Trust -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/40">
+      <h3 class="text-xl font-black">Built for responsibility</h3>
+      <p class="mt-2 text-slate-400 text-sm leading-relaxed">
+        AskDesk is designed for regulated and high-stakes workflows where accuracy, traceability, and reviewability matter.
+        Output includes verbatim extracts to support auditability and review.
+      </p>
+      <div class="mt-6 grid sm:grid-cols-3 gap-3 text-sm text-slate-300">
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">• Source-grounded extraction</div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">• Review notes + status workflow</div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">• Usage limits per plan</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-950/30">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-400 flex flex-col md:flex-row gap-3 items-start md:items-center justify-between">
+      <div>© <span id="y"></span> AskDesk • Built by ATAOL AI Techs</div>
+      <div class="flex gap-4">
+        <a class="hover:text-slate-200" href="/terms.html">Terms of Use</a>
+        <a class="hover:text-slate-200" href="/privacy.html">Privacy Policy</a>
+        <a class="hover:text-slate-200" href="/app">Open App</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
- 
