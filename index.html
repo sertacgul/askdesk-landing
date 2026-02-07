@@ -117,7 +117,7 @@
           </div>
           <div class="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
             <div class="font-bold text-white">Exports</div>
-            <div class="text-slate-400 text-xs">XLSX</div>
+            <div class="text-slate-400 text-xs">Plan-based (Pro/Ent)</div>
           </div>
         </div>
 
@@ -198,6 +198,7 @@
       <h2 class="text-2xl font-black">How it works</h2>
       <a href="https://app.askdesk.app" class="text-sm text-indigo-300 hover:text-indigo-200">Open the app →</a>
     </div>
+
     <div class="mt-6 grid lg:grid-cols-3 gap-4">
       <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
         <div class="text-indigo-300 font-black text-xl">1</div>
@@ -215,6 +216,54 @@
         <div class="text-slate-400 text-sm mt-1">Log, status, notes, and export based on plan.</div>
       </div>
     </div>
+
+    <!-- ASKDESK: HOW IT WORKS (AUTH + BILLING) START -->
+    <div class="mt-6 p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+      <div class="flex items-start justify-between gap-4 flex-col sm:flex-row">
+        <div>
+          <h3 class="text-lg font-black">Login + Upgrade flow (Magic Link + Checkout)</h3>
+          <p class="mt-2 text-slate-400 text-sm leading-relaxed">
+            AskDesk uses passwordless login. You enter your email in the app, we send a <span class="text-slate-200 font-semibold">Magic Link</span>,
+            and once verified you can upgrade your plan via LemonSqueezy. Your plan is enforced <span class="text-slate-200 font-semibold">server-side</span>.
+          </p>
+        </div>
+        <div class="hidden sm:block w-12 h-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/40">
+          <svg class="w-full h-full" viewBox="0 0 64 64">
+            <use href="#askdesk-icon"></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="mt-5 grid lg:grid-cols-4 gap-3 text-sm text-slate-300">
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">
+          <div class="text-xs text-slate-400 uppercase font-bold">Step 1</div>
+          <div class="mt-1 font-semibold text-white">Enter email in the app</div>
+          <div class="mt-1 text-slate-400 text-xs">We store your email locally for your session & plan sync.</div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">
+          <div class="text-xs text-slate-400 uppercase font-bold">Step 2</div>
+          <div class="mt-1 font-semibold text-white">Magic Link is sent</div>
+          <div class="mt-1 text-slate-400 text-xs">A one-time login link arrives from <span class="font-semibold text-slate-200">info@askdesk.app</span>.</div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">
+          <div class="text-xs text-slate-400 uppercase font-bold">Step 3</div>
+          <div class="mt-1 font-semibold text-white">Verify → choose a plan</div>
+          <div class="mt-1 text-slate-400 text-xs">After verification, select Pro or Enterprise and continue to checkout.</div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/30">
+          <div class="text-xs text-slate-400 uppercase font-bold">Step 4</div>
+          <div class="mt-1 font-semibold text-white">Pay via LemonSqueezy</div>
+          <div class="mt-1 text-slate-400 text-xs">After payment, your subscription is recorded and your limits update automatically.</div>
+        </div>
+      </div>
+
+      <div class="mt-4 text-xs text-slate-500 leading-relaxed">
+        <span class="text-slate-300 font-semibold">How the app knows you paid:</span>
+        after checkout, the backend matches your subscription to your email and returns the correct plan & daily limits.
+        The app sends your email as an identifier on each request, so your access is granted based on your active subscription.
+      </div>
+    </div>
+    <!-- ASKDESK: HOW IT WORKS (AUTH + BILLING) END -->
   </section>
 
   <!-- Pricing -->
@@ -245,7 +294,7 @@
 
         <ul class="mt-5 space-y-2 text-sm text-slate-300">
           <li>• Q&A + extract + grounding check</li>
-          <li>• Single generate + bulk up to 5</li>
+          <li>• Bulk up to 5</li>
           <li>• Session log + status tracking</li>
           <li>• No export, restricted copy</li>
         </ul>
@@ -264,14 +313,15 @@
         <div class="mt-3 text-3xl font-black">$9.99<span class="text-sm font-semibold text-slate-200">/month</span></div>
         <div class="text-slate-300 text-sm">100 generations / day</div>
 
+        <!-- ASKDESK: PRICING COPY FIX START -->
         <ul class="mt-5 space-y-2 text-sm text-slate-100">
           <li>• Everything in Starter</li>
-          <li>• Bulk up to 5</li>
-          <li>• Export: N/A </li>
+          <li>• Bulk up to 20</li>
+          <li>• Export: XLSX, CSV</li>
           <li>• Higher daily capacity for production use</li>
         </ul>
+        <!-- ASKDESK: PRICING COPY FIX END -->
 
-        <!-- TODO: replace href with your LemonSqueezy Pro checkout URL -->
         <a href="https://api.askdesk.app/billing/upgrade?plan=pro"
            class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 font-semibold">
           Upgrade to Pro
@@ -287,14 +337,15 @@
         <div class="mt-3 text-3xl font-black">$99.99<span class="text-sm font-semibold text-slate-200">/month</span></div>
         <div class="text-slate-400 text-sm">1000 generations / day</div>
 
+        <!-- ASKDESK: PRICING COPY FIX START -->
         <ul class="mt-5 space-y-2 text-sm text-slate-300">
           <li>• Everything in Pro</li>
           <li>• Bulk up to 100</li>
-          <li>• Export: XLSX </li>
+          <li>• Export: XLSX, CSV, JSON</li>
           <li>• Copy enabled + highest capacity</li>
         </ul>
+        <!-- ASKDESK: PRICING COPY FIX END -->
 
-        <!-- TODO: replace href with your LemonSqueezy Enterprise checkout URL -->
         <a href="https://api.askdesk.app/billing/upgrade?plan=enterprise"
            class="mt-6 inline-flex w-full justify-center px-4 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 font-semibold">
           Upgrade to Enterprise
@@ -303,8 +354,31 @@
     </div>
 
     <p class="mt-4 text-xs text-slate-500">
-      Note: plan enforcement is server-side (subscription status + limits).
+      Note: plan enforcement is server-side (subscription status + daily limits).
     </p>
+
+    <!-- ASKDESK: FAQ START -->
+    <div class="mt-8 grid lg:grid-cols-3 gap-4">
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="font-bold text-white">Do I need a password?</div>
+        <div class="mt-2 text-slate-400 text-sm leading-relaxed">
+          No. AskDesk uses a Magic Link sent to your email. Click it to verify and continue.
+        </div>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="font-bold text-white">When does Pro/Enterprise activate?</div>
+        <div class="mt-2 text-slate-400 text-sm leading-relaxed">
+          Right after successful checkout. Your subscription is synced to your email and enforced on the server.
+        </div>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+        <div class="font-bold text-white">What happens if I hit my limit?</div>
+        <div class="mt-2 text-slate-400 text-sm leading-relaxed">
+          The backend blocks further generations for the day and you’ll see an upgrade prompt.
+        </div>
+      </div>
+    </div>
+    <!-- ASKDESK: FAQ END -->
   </section>
 
   <!-- Trust -->
@@ -360,4 +434,3 @@
   </script>
 </body>
 </html>
-
